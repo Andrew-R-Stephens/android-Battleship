@@ -5,8 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +13,6 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 
 import com.asteph11.finalproject.R;
 import com.asteph11.finalproject.models.data.Grid;
@@ -46,28 +43,24 @@ public abstract class AGridFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_setup, container, false);
     }
 
-    protected void createGrid(View view) {
+    protected void createGrid(View fragmentView, View containerGrid) {
         gridCoords = new View[Grid.DIMENSIONS][Grid.DIMENSIONS];
 
         String[] markers = {"A","B","C","D","E","F","G"};
 
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        masterGrid = inflater.inflate(
-                R.layout.layout_grid,
-                (ViewGroup) view,
-                false);
-        LinearLayoutCompat grid_linearLayout = masterGrid.findViewById(R.id.gridContainer);
+        LinearLayoutCompat grid_linearLayout = containerGrid.findViewById(R.id.gridContainer);
 
+        LayoutInflater inflater = LayoutInflater.from(getContext());
         // Set top markers
         View topRowInflater = inflater.inflate(
                 R.layout.layout_gridrow,
-                (ViewGroup) view,
+                (ViewGroup) fragmentView,
                 false);
         LinearLayoutCompat topRow_linearLayout = topRowInflater.findViewById(R.id.gridrowContainer);
         for(int x = 0; x < Grid.DIMENSIONS+1; x++) {
             View marker_top = inflater.inflate(
                     R.layout.layout_gridcoord,
-                    (ViewGroup) view,
+                    (ViewGroup) fragmentView,
                     false);
             TextView label = marker_top.findViewById(R.id.label);
             label.setText(x > 0 ? markers[x-1] : "");
@@ -82,14 +75,14 @@ public abstract class AGridFragment extends Fragment {
         for(int y = 0; y < Grid.DIMENSIONS; y++) {
             gridRows[y] = inflater.inflate(
                     R.layout.layout_gridrow,
-                    (ViewGroup) view,
+                    (ViewGroup) fragmentView,
                     false);
             LinearLayoutCompat row_linearLayout = gridRows[y].findViewById(R.id.gridrowContainer);
 
             // Set left markers
             View marker_left = inflater.inflate(
                     R.layout.layout_gridcoord,
-                    (ViewGroup) view,
+                    (ViewGroup) fragmentView,
                     false);
             TextView label = marker_left.findViewById(R.id.label);
             label.setText((y+1)+"");
@@ -101,7 +94,7 @@ public abstract class AGridFragment extends Fragment {
             for(int x = 0; x < Grid.DIMENSIONS; x++) {
                 gridCoords[y][x] = inflater.inflate(
                         R.layout.layout_gridcoord,
-                        (ViewGroup) view,
+                        (ViewGroup) fragmentView,
                         false);
                 gridCoords[y][x].findViewById(R.id.status).setVisibility(View.INVISIBLE);
                 row_linearLayout.addView(gridCoords[y][x]);
@@ -109,8 +102,8 @@ public abstract class AGridFragment extends Fragment {
             grid_linearLayout.addView(gridRows[y]);
         }
 
-        ConstraintLayout gridContainer = view.findViewById(R.id.gridLayout);
-        gridContainer.addView(masterGrid);
+        ConstraintLayout gridContainer = fragmentView.findViewById(R.id.gridLayout);
+        gridContainer.addView(containerGrid);
     }
 
     protected abstract void setCoordinateListeners();
