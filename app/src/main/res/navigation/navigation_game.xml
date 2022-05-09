@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/startscreen_navgraph"
+    app:startDestination="@id/setupFragment">
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.asteph11.finalproject.controllers.fragments.GameFragment"
+        android:label="GameFragment" >
+        <action
+            android:id="@+id/action_gameFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_awaitSwapFragment"
+            app:destination="@id/awaitSwapFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/gameActivity"
+        android:name="com.asteph11.finalproject.controllers.activities.GameActivity"
+        android:label="GameActivity" />
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.asteph11.finalproject.controllers.fragments.SetupFragment"
+        android:label="SetupFragment" >
+        <action
+            android:id="@+id/action_setupFragment_to_gameActivity"
+            app:destination="@id/gameActivity" />
+        <action
+            android:id="@+id/action_setupFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_setupFragment_to_awaitSwapFragment"
+            app:destination="@id/awaitSwapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.asteph11.finalproject.controllers.fragments.ScoreFragment"
+        android:label="ScoreFragment" >
+        <action
+            android:id="@+id/action_scoreFragment_to_gameActivity"
+            app:destination="@id/gameActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/awaitSwapFragment"
+        android:name="com.asteph11.finalproject.controllers.fragments.AwaitSwapFragment"
+        android:label="AwaitSwapFragment" >
+        <action
+            android:id="@+id/action_awaitSwapFragment_to_setupFragment"
+            app:destination="@id/setupFragment" />
+        <action
+            android:id="@+id/action_awaitSwapFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+</navigation>
