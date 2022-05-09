@@ -89,4 +89,16 @@ public class Player {
     public Grid getGrid() {
         return grid;
     }
+
+    public boolean isDefeated() {
+        boolean isDefeated = true;
+        for(int y = 0; y < Grid.DIMENSIONS; y++) {
+            for(int x = 0; x < Grid.DIMENSIONS; x++) {
+                if(grid.getStatusAt(x, y, Grid.Status.SHIP)) {
+                    isDefeated = false;
+                }
+            }
+        }
+        return isDefeated;
+    }
 }

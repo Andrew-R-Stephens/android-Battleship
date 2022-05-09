@@ -33,12 +33,14 @@ public class MatchViewModel extends ViewModel {
         return turnHandler;
     }
 
-    public boolean gameReady() throws Exception {
-        if(turnHandler == null || getP1() == null || getP2() == null) {
-            throw new Exception("Turnover or Players are null!");
+    public boolean playersReady() throws Exception {
+        if(turnHandler == null) {
+            throw new Exception("TurnHandler is null!");
         }
-
-        return getP1().isReady() && getP2().isReady();
+        return turnHandler.isReady();
     }
 
+    public boolean isGameFinished() throws Exception {
+        return turnHandler.isFinished();
+    }
 }

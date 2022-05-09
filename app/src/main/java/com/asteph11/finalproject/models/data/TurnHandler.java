@@ -23,6 +23,10 @@ public class TurnHandler {
         return players[current];
     }
 
+    public Player getOtherPlayer() {
+        return players[((current+1) % 2)];
+    }
+
     public Player getP1() {
         return players[0];
     }
@@ -35,4 +39,16 @@ public class TurnHandler {
         return "Current Player: [" + current + "] " + players[current];
     }
 
+    public boolean isReady() throws Exception {
+        if(players == null || players[0] == null || players[1] == null) {
+            throw new Exception("Players are null!");
+        }
+
+        return getP1().isReady() && getP2().isReady();
+    }
+
+    public boolean isFinished() throws Exception {
+        isReady();
+        return getP1().isDefeated() || getP2().isDefeated();
+    }
 }

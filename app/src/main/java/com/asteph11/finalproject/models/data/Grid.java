@@ -33,6 +33,10 @@ public class Grid {
         return Status.values()[getStatusIndex(coordX, coordY)];
     }
 
+    public boolean getStatusAt(int coordX, int coordY, Status status) {
+        return getStatusAt(coordX, coordY) == status;
+    }
+
     public GridCoord[][] getGridCoords() {
         return grid;
     }

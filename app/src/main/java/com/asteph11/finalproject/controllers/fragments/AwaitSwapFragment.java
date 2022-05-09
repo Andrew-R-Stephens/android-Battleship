@@ -30,10 +30,7 @@ public class AwaitSwapFragment extends Fragment {
             matchViewModel = new ViewModelProvider(requireActivity()).
                     get(MatchViewModel.class);
         }
-        // INITIALIZE VIEW MODEL
-        if (getContext() != null) {
-            matchViewModel.init(getContext());
-        }
+
 
         return inflater.inflate(R.layout.fragment_awaitswap, container, false);
     }
@@ -44,12 +41,16 @@ public class AwaitSwapFragment extends Fragment {
         swappedButton.setOnClickListener(v -> {
             boolean isGameReady = false;
             try {
-                isGameReady = matchViewModel.gameReady();
+                isGameReady = matchViewModel.playersReady();
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
             if(!isGameReady) {
                 Navigation.findNavController(v).popBackStack();
+            } else {
+                Navigation.findNavController(v).
+                        navigate(R.id.action_awaitSwapFragment_to_gameFragment);
             }
         });
     }
