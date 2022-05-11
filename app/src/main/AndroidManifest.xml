@@ -9,9 +9,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
 
-        <!-- This name is resolved to com.example.myapp.MainActivity
-             based upon the namespace property in the `build.gradle` file -->
         <activity android:name=".controllers.activities.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +19,7 @@
         </activity>
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".controllers.activities.GameActivity"
             android:parentActivityName=".controllers.activities.MainActivity" />
     </application>

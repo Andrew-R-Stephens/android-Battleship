@@ -27,11 +27,10 @@ public class ScoreFragment extends Fragment {
         if (matchViewModel == null) {
             matchViewModel = new ViewModelProvider(requireActivity()).
                     get(MatchViewModel.class);
-        }
-        // INITIALIZE VIEW MODEL
-        if (getContext() != null) {
+            // INITIALIZE VIEW MODEL
             matchViewModel.init(getContext());
         }
+
 
         return inflater.inflate(R.layout.fragment_scores, container, false);
     }

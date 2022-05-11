@@ -2,7 +2,9 @@ package com.asteph11.finalproject.models.data;
 
 public class TurnHandler {
 
-    int current = 1;
+    private int turnCount = 0;
+
+    private int current = 1;
     private Player[] players;
 
     public TurnHandler(Player p1, Player p2) {
@@ -10,7 +12,13 @@ public class TurnHandler {
     }
 
     private int swapIndex() {
-        return current = ((current+1) % 2);
+        current = ((current+1) % 2);
+
+        if(current == 1) {
+            turnCount++;
+        }
+
+        return current;
     }
 
     public Player swapTurns() {

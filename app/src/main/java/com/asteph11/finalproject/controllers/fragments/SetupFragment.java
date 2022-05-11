@@ -5,11 +5,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.navigation.Navigation;
 
 import com.asteph11.finalproject.R;
@@ -29,7 +30,8 @@ public class SetupFragment extends AGridFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Button readyButton = view.findViewById(R.id.readyButton);
+        CardView readyButton = view.findViewById(R.id.readyButton);
+        EditText nameInput = view.findViewById(R.id.nameInput);
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
 
@@ -41,6 +43,12 @@ public class SetupFragment extends AGridFragment {
         setCoordinateListeners();
 
         readyButton.setOnClickListener(v -> {
+            if((nameInput.getText().toString().equalsIgnoreCase("") ||
+                    !matchViewModel.getTurnHandler().getCurrentPlayer().isGridReady()
+            )) {
+                return;
+            }
+
             boolean gameReady = false;
             try {
                 gameReady = matchViewModel.playersReady();
@@ -49,13 +57,15 @@ public class SetupFragment extends AGridFragment {
             }
             matchViewModel.getTurnHandler().swapTurns();
             if(!gameReady) {
+                matchViewModel.getTurnHandler().getOtherPlayer().setName(nameInput.getText().toString());
+                nameInput.setText("");
                 Navigation.findNavController(v).
                         navigate(R.id.action_setupFragment_to_awaitSwapFragment);
             } else {
+                matchViewModel.getTurnHandler().getOtherPlayer().setName(nameInput.getText().toString());
                 Navigation.findNavController(v).
                         navigate(R.id.action_setupFragment_to_gameFragment);
             }
-
         });
     }
 
@@ -65,10 +75,19 @@ public class SetupFragment extends AGridFragment {
                 int finalX = x;
                 int finalY = y;
                 gridCoords[y][x].setOnClickListener(view -> {
-                    matchViewModel.getTurnHandler().getCurrentPlayer().setShip(finalX, finalY);
+
                     ImageView status = gridCoords[finalY][finalX].findViewById(R.id.status);
-                    status.setImageDrawable(getResources().getDrawable(R.drawable.ship, getActivity().getTheme()));
-                    status.setVisibility(View.VISIBLE);
+
+                    matchViewModel.getTurnHandler().getCurrentPlayer().setShip(finalX, finalY);
+                    if(matchViewModel.getTurnHandler().getCurrentPlayer().getGrid().getStatusAt(finalX, finalY) == Grid.Status.SHIP) {
+                        status.setImageDrawable(getResources().getDrawable(R.drawable.ship,
+                                getActivity().getTheme()));
+                        status.setVisibility(View.VISIBLE);
+                    } else {
+                        status.setImageDrawable(null);
+                        status.setVisibility(View.INVISIBLE);
+                    }
+
                     try {
                         System.out.println(matchViewModel.getTurnHandler().getCurrentPlayer().getGrid());
                     } catch (Exception e) {

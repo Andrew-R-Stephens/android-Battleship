@@ -3,6 +3,7 @@ package com.asteph11.finalproject.models.data;
 public class Grid {
 
     public static final int DIMENSIONS = 7;
+    public static final int MAX_NUM_SHIPS = (int)((DIMENSIONS*DIMENSIONS)*(17/100.0));
 
     public enum Status {
         EMPTY,

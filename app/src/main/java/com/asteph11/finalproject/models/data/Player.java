@@ -5,6 +5,10 @@ public class Player {
     private String name;
     private Grid grid;
 
+    private int numShips = 0;
+
+    private long turnMillis = 0;
+
     public Player(String name) {
         this.name = name;
     }
@@ -19,11 +23,21 @@ public class Player {
         }
 
         if(grid.getStatusAt(x, y) != Grid.Status.SHIP) {
-            grid.setStatus(x, y, Grid.Status.SHIP);
+            if(!isGridReady()) {
+                grid.setStatus(x, y, Grid.Status.SHIP);
+                numShips++;
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            grid.setStatus(x, y, Grid.Status.EMPTY);
+            numShips--;
+            if(numShips < 0) {
+                numShips = 0;
+            }
             return true;
         }
-
-        return false;
     }
 
     /**
@@ -101,4 +115,13 @@ public class Player {
         }
         return isDefeated;
     }
+
+    public void setName(String nameInput) {
+        this.name = nameInput;
+    }
+
+    public boolean isGridReady() {
+        return numShips >= Grid.MAX_NUM_SHIPS;
+    }
+
 }

@@ -31,6 +31,9 @@ public class GameFragment extends AGridFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        TextView turnTitle = view.findViewById(R.id.turnTitle);
+        turnTitle.setText(matchViewModel.getTurnHandler().getCurrentPlayer().getName() + "'s Turn");
+
         createGrid(view);
         setCoordinateListeners();
     }
@@ -125,11 +128,16 @@ public class GameFragment extends AGridFragment {
                 int finalX = x;
                 int finalY = y;
                 gridCoords[y][x].setOnClickListener(view -> {
-
+                    int status = 0;
                     try {
-                        matchViewModel.getTurnHandler().getOtherPlayer().receiveFire(finalX, finalY);
+                         status =
+                                matchViewModel.getTurnHandler().getOtherPlayer().receiveFire(finalX, finalY);
                     } catch (Exception e) {
                         e.printStackTrace();
+                    }
+
+                    if(status == -1) {
+                        return;
                     }
 
                     boolean gameFinished = false;
