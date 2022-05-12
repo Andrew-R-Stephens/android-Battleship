@@ -337,12 +337,12 @@ class GameFragment : AGridFragment() {
                         matchViewModel?.turnHandler!!.currentPlayer!!.addHit()
                         wateranim!!.alpha = 1f
                         wateranim!!.visibility = View.VISIBLE
-                        wateranim!!.animate().setDuration(1500).start()
+                        wateranim!!.animate().setDuration(5000).start()
                         val rotate = RotateAnimation(
-                            0f, -120f, Animation.RELATIVE_TO_SELF,
+                            0f, -90f, Animation.RELATIVE_TO_SELF,
                             0.5f, Animation.RELATIVE_TO_SELF, 0.5f
                         )
-                        rotate.duration = 5000
+                        rotate.duration = 1500
                         rotate.interpolator = LinearInterpolator()
                         shipanim!!.animation = rotate
                         shipanim!!.alpha = 1f
@@ -353,14 +353,31 @@ class GameFragment : AGridFragment() {
                                 override fun onAnimationEnd(animation: Animator) {
                                     super.onAnimationEnd(animation)
                                     if (!finalGameFinished) {
-                                        matchViewModel?.turnHandler!!.swapTurns()
-                                        findNavController(view!!).navigate(R.id.action_gameFragment_to_awaitSwapFragment)
+                                        wateranim!!.alpha = 0f
+                                        wateranim!!.visibility = View.INVISIBLE
+                                        shipanim!!.alpha = 0f
+                                        shipanim!!.visibility = View.INVISIBLE
+
+                                        /*matchViewModel?.turnHandler!!.swapTurns()
+                                        findNavController(view!!).navigate(R.id.action_gameFragment_to_awaitSwapFragment)*/
+                                        canPlace = true;
                                     } else {
                                         matchViewModel?.addWinner()
                                         findNavController(view!!).navigate(R.id.action_gameFragment_to_scoreFragment)
                                     }
                                 }
                             }).start()
+                        val imagestatus = gridCoords[y][x]?.findViewById<ImageView>(R.id.status)
+                        imagestatus?.background = resources.getDrawable(
+                            R.drawable.hit,
+                            activity!!.theme
+                        )
+                        imagestatus?.alpha = 0f
+                        imagestatus?.visibility = View.VISIBLE
+                        imagestatus?.animate()
+                            ?.alpha(1f)
+                            ?.setDuration(500)
+                            ?.start()
                     }
                 }
             }
