@@ -2,17 +2,17 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/startscreen_navgraph"
-    app:startDestination="@id/startScreenFragment">
+    app:startDestination="@id/mainFragment2">
+    <fragment
+        android:id="@+id/mainFragment2"
+        android:name="com.asteph11.finalproject.controllers.fragments.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment2_to_mainActivity3"
+            app:destination="@id/mainActivity3" />
+    </fragment>
     <activity
-        android:id="@+id/mainActivity"
+        android:id="@+id/mainActivity3"
         android:name="com.asteph11.finalproject.controllers.activities.MainActivity"
         android:label="MainActivity" />
-    <fragment
-        android:id="@+id/startScreenFragment"
-        android:name="com.asteph11.finalproject.controllers.fragments.MainFragment"
-        android:label="StartScreenFragment" >
-        <action
-            android:id="@+id/action_startScreenFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
-    </fragment>
 </navigation>

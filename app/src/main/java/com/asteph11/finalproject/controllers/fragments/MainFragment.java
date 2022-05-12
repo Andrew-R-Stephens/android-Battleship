@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.asteph11.finalproject.R;
 import com.asteph11.finalproject.controllers.activities.GameActivity;
 import com.asteph11.finalproject.models.viewmodels.MatchViewModel;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainFragment extends Fragment {
 
@@ -33,7 +34,7 @@ public class MainFragment extends Fragment {
         }
         // INITIALIZE VIEW MODEL
         if (getContext() != null) {
-            matchViewModel.init(getContext());
+            matchViewModel.init(FirebaseFirestore.getInstance());
         }
 
         return inflater.inflate(R.layout.fragment_startscreen, container, false);

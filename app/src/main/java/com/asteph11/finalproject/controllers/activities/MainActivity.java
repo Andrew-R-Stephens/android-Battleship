@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.asteph11.finalproject.R;
 import com.asteph11.finalproject.models.viewmodels.MatchViewModel;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication());
 
         matchViewModel = factory.create(MatchViewModel.class);
-        matchViewModel.init(MainActivity.this);
+        matchViewModel.init(FirebaseFirestore.getInstance());
     }
 
 }

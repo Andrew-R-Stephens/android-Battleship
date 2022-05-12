@@ -27,6 +27,10 @@ public class TurnHandler {
         return players[current];
     }
 
+    public int getTurnCount() {
+        return turnCount;
+    }
+
     public Player getCurrentPlayer() {
         return players[current];
     }

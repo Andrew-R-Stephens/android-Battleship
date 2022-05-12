@@ -6,8 +6,7 @@ public class Player {
     private Grid grid;
 
     private int numShips = 0;
-
-    private long turnMillis = 0;
+    private int hits, misses;
 
     public Player(String name) {
         this.name = name;
@@ -74,28 +73,6 @@ public class Player {
         return value;
     }
 
-    public Grid getGridObfuscated() throws Exception {
-        if(grid == null) {
-            throw new Exception("Player grid is null!");
-        }
-
-        Grid grid = new Grid();
-
-        for(int y = 0; y < Grid.DIMENSIONS; y++) {
-            for(int x = 0; x < Grid.DIMENSIONS; x++) {
-                Grid.Status status = this.grid.getStatusAt(x, y);
-                if(status == Grid.Status.SHIP) {
-                    grid.setStatus(x, y, Grid.Status.MISS);
-                } else {
-                    grid.setStatus(x, y, status);
-                }
-
-            }
-        }
-
-        return grid;
-    }
-
     public boolean isReady() {
         return grid != null;
     }
@@ -124,4 +101,19 @@ public class Player {
         return numShips >= Grid.MAX_NUM_SHIPS;
     }
 
+    public void addHit() {
+        hits++;
+    }
+
+    public void addMiss() {
+        misses++;
+    }
+
+    public int getHits() {
+        return hits;
+    }
+
+    public int getMisses() {
+        return misses;
+    }
 }

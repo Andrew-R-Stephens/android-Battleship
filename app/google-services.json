@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "405023855572",
+    "project_id": "battleship-cs4200",
+    "storage_bucket": "battleship-cs4200.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405023855572:android:809ab763545ed7f0713c41",
+        "android_client_info": {
+          "package_name": "com.asteph11.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405023855572-jipgpjl8ak6h4v3ht9ubjbf82v7rpb8d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQaFfxALpbRe_fICxNsdVdbaIJQ2My3V8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405023855572-jipgpjl8ak6h4v3ht9ubjbf82v7rpb8d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

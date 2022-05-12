@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +37,16 @@ public class AwaitSwapFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        TextView request = view.findViewById(R.id.text_request);
+
+
+        if(!matchViewModel.getTurnHandler().getCurrentPlayer().isReady()) {
+            request.setText("Please hand device over to other player");
+        } else {
+            request.setText("Please hand device over to " + matchViewModel.getTurnHandler().getCurrentPlayer().getName());
+        }
+
         CardView swappedButton = view.findViewById(R.id.button_swapped);
         swappedButton.setOnClickListener(v -> {
             boolean isGameReady = false;

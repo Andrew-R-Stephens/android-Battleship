@@ -37,8 +37,8 @@
         android:name="com.asteph11.finalproject.controllers.fragments.ScoreFragment"
         android:label="ScoreFragment" >
         <action
-            android:id="@+id/action_scoreFragment_to_gameActivity"
-            app:destination="@id/gameActivity" />
+            android:id="@+id/action_scoreFragment_to_setupFragment"
+            app:destination="@id/setupFragment" />
     </fragment>
     <fragment
         android:id="@+id/awaitSwapFragment"

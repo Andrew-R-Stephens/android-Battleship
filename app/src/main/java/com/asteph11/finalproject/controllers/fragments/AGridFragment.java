@@ -2,9 +2,11 @@ package com.asteph11.finalproject.controllers.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,10 +19,13 @@ import androidx.lifecycle.ViewModelProvider;
 import com.asteph11.finalproject.R;
 import com.asteph11.finalproject.models.data.Grid;
 import com.asteph11.finalproject.models.viewmodels.MatchViewModel;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public abstract class AGridFragment extends Fragment {
 
     protected MatchViewModel matchViewModel;
+
+    protected int coordSize;
 
     protected View masterGrid;
     protected View[] gridRows;
@@ -37,8 +42,11 @@ public abstract class AGridFragment extends Fragment {
             matchViewModel = new ViewModelProvider(requireActivity()).
                     get(MatchViewModel.class);
             // INITIALIZE VIEW MODEL
-            matchViewModel.init(getContext());
+            matchViewModel.init(FirebaseFirestore.getInstance());
         }
+
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        coordSize = (int)(display.getWidth()/((double)Grid.DIMENSIONS+1));
 
         return inflater.inflate(R.layout.fragment_setup, container, false);
     }
@@ -62,6 +70,10 @@ public abstract class AGridFragment extends Fragment {
                     R.layout.layout_gridcoord,
                     (ViewGroup) fragmentView,
                     false);
+            marker_top.setLayoutParams(new LinearLayout.LayoutParams(coordSize,
+                    coordSize, 1f));
+            marker_top.setLayoutParams(new LinearLayout.LayoutParams(coordSize,
+                    coordSize, 1f));
             TextView label = marker_top.findViewById(R.id.label);
             label.setText(x > 0 ? markers[x-1] : "");
             marker_top.findViewById(R.id.status).setVisibility(View.INVISIBLE);
@@ -84,6 +96,8 @@ public abstract class AGridFragment extends Fragment {
                     R.layout.layout_gridcoord,
                     (ViewGroup) fragmentView,
                     false);
+            marker_left.setLayoutParams(new LinearLayout.LayoutParams(coordSize,
+                    coordSize, 1f));
             TextView label = marker_left.findViewById(R.id.label);
             label.setText((y+1)+"");
             marker_left.findViewById(R.id.status).setVisibility(View.INVISIBLE);
@@ -96,6 +110,8 @@ public abstract class AGridFragment extends Fragment {
                         R.layout.layout_gridcoord,
                         (ViewGroup) fragmentView,
                         false);
+                gridCoords[y][x].setLayoutParams(new LinearLayout.LayoutParams(coordSize,
+                        coordSize, 1f));
                 gridCoords[y][x].findViewById(R.id.status).setVisibility(View.INVISIBLE);
                 row_linearLayout.addView(gridCoords[y][x]);
             }

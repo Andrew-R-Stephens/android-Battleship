@@ -3,51 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout10"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/button_texture"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout9"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout9"
         app:layout_constraintHeight_percent=".05"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout9"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18"
         app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/player1title"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Player 1"
-            android:gravity="center"
-            android:autoSizeStepGranularity="1sp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
             android:autoSizeMaxTextSize="32sp"
             android:autoSizeMinTextSize="10sp"
+            android:autoSizeStepGranularity="1sp"
             android:autoSizeTextType="uniform"
+            android:gravity="center"
             android:maxLines="1"
-            app:layout_constraintBottom_toBottomOf="@+id/textView17"
-            app:layout_constraintEnd_toStartOf="@+id/textView17"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:text="P1 Name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/player2title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView17" />
+            app:layout_constraintTop_toTopOf="@+id/player2title" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/player2title"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Player 2"
-            android:gravity="center"
-            android:autoSizeStepGranularity="1sp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
             android:autoSizeMaxTextSize="32sp"
             android:autoSizeMinTextSize="10sp"
+            android:autoSizeStepGranularity="1sp"
             android:autoSizeTextType="uniform"
+            android:gravity="center"
             android:maxLines="1"
+            android:text="P2 Name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView16" />
+            app:layout_constraintStart_toEndOf="@+id/player1title"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,7 +60,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".8"
+        app:layout_constraintHeight_percent=".6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout10"
@@ -66,237 +70,224 @@
             android:id="@+id/constraintLayout6"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/button_texture"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout7"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent=".3"
+            app:layout_constraintHeight_percent=".1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread_inside">
+            app:layout_constraintVertical_bias="0.19999999"
+            app:layout_constraintVertical_chainStyle="packed">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/p1shipshit"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Player 1"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
+                android:layout_height="24dp"
                 android:autoSizeMaxTextSize="32sp"
                 android:autoSizeMinTextSize="10sp"
+                android:autoSizeStepGranularity="1sp"
                 android:autoSizeTextType="uniform"
+                android:gravity="center"
                 android:maxLines="1"
-                app:layout_constraintBottom_toTopOf="@+id/textView5"
-                app:layout_constraintEnd_toStartOf="@+id/textView15"
+                android:text="Hit Total"
+                app:layout_constraintBottom_toTopOf="@+id/p1shipshittotal"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/p1shipshittotal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Player 1"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
                 android:autoSizeMaxTextSize="32sp"
                 android:autoSizeMinTextSize="10sp"
+                android:autoSizeStepGranularity="1sp"
                 android:autoSizeTextType="uniform"
+                android:gravity="center"
                 android:maxLines="1"
+                android:text="P1 Hit total"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView14"
+                app:layout_constraintEnd_toStartOf="@+id/p2shipshittotal"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/p1shipshit" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/p2shipshittotal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Player 2"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
                 android:autoSizeMaxTextSize="32sp"
                 android:autoSizeMinTextSize="10sp"
+                android:autoSizeStepGranularity="1sp"
                 android:autoSizeTextType="uniform"
+                android:gravity="center"
                 android:maxLines="1"
-                app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                android:text="P2 Hit total"
+                app:layout_constraintBottom_toBottomOf="@+id/p1shipshittotal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toTopOf="@+id/textView5" />
+                app:layout_constraintStart_toEndOf="@+id/p1shipshittotal"
+                app:layout_constraintTop_toTopOf="@+id/p1shipshittotal" />
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Player 2"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
-                android:autoSizeMaxTextSize="32sp"
-                android:autoSizeMinTextSize="10sp"
-                android:autoSizeTextType="uniform"
-                android:maxLines="1"
-                app:layout_constraintBottom_toBottomOf="@+id/textView3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView3"
-                app:layout_constraintTop_toTopOf="@+id/textView3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout7"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/button_texture"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout8"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent=".3"
+            app:layout_constraintHeight_percent=".1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/p1shipsmissed"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Player 1"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
+                android:layout_height="24dp"
                 android:autoSizeMaxTextSize="32sp"
                 android:autoSizeMinTextSize="10sp"
+                android:autoSizeStepGranularity="1sp"
                 android:autoSizeTextType="uniform"
+                android:gravity="center"
                 android:maxLines="1"
-                app:layout_constraintBottom_toTopOf="@+id/textView12"
-                app:layout_constraintEnd_toStartOf="@+id/textView11"
+                android:text="Miss Total"
+                app:layout_constraintBottom_toTopOf="@+id/p1shipsmissedtotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/p1shipsmissedtotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autoSizeMaxTextSize="32sp"
+                android:autoSizeMinTextSize="10sp"
+                android:autoSizeStepGranularity="1sp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="P1 Miss Total"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/p2shipsmissedtotal"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/p1shipsmissed" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/p2shipsmissedtotal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Player 2"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
                 android:autoSizeMaxTextSize="32sp"
                 android:autoSizeMinTextSize="10sp"
+                android:autoSizeStepGranularity="1sp"
                 android:autoSizeTextType="uniform"
+                android:gravity="center"
                 android:maxLines="1"
-                app:layout_constraintBottom_toTopOf="@+id/textView13"
+                android:text="P2 Miss Total"
+                app:layout_constraintBottom_toBottomOf="@+id/p1shipsmissedtotal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView6"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Player 1"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
-                android:autoSizeMaxTextSize="32sp"
-                android:autoSizeMinTextSize="10sp"
-                android:autoSizeTextType="uniform"
-                android:maxLines="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView13"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Player 2"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
-                android:autoSizeMaxTextSize="32sp"
-                android:autoSizeMinTextSize="10sp"
-                android:autoSizeTextType="uniform"
-                android:maxLines="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView12"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintStart_toEndOf="@+id/p1shipsmissedtotal" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout8"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintHeight_percent=".4"
+            android:background="@drawable/button_texture"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent=".3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/lastthreewinners"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Player 1"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
                 android:autoSizeMaxTextSize="32sp"
                 android:autoSizeMinTextSize="10sp"
-                android:autoSizeTextType="uniform"
-                android:maxLines="1"
-                app:layout_constraintBottom_toTopOf="@+id/textView8"
-                app:layout_constraintEnd_toStartOf="@+id/textView9"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Player 1"
-                android:gravity="center"
                 android:autoSizeStepGranularity="1sp"
-                android:autoSizeMaxTextSize="32sp"
-                android:autoSizeMinTextSize="10sp"
                 android:autoSizeTextType="uniform"
-                android:maxLines="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView10"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Player 2"
                 android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
-                android:autoSizeMaxTextSize="32sp"
-                android:autoSizeMinTextSize="10sp"
-                android:autoSizeTextType="uniform"
                 android:maxLines="1"
-                app:layout_constraintBottom_toTopOf="@+id/textView10"
+                android:text="Last 3 Winners"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView7"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread" />
 
-            <TextView
-                android:id="@+id/textView10"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/winnersList"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Player 2"
-                android:gravity="center"
-                android:autoSizeStepGranularity="1sp"
-                android:autoSizeMaxTextSize="32sp"
-                android:autoSizeMinTextSize="10sp"
-                android:autoSizeTextType="uniform"
-                android:maxLines="1"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:weightSum="3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lastthreewinners"></androidx.appcompat.widget.LinearLayoutCompat>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout34"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout9"
+        app:layout_constraintVertical_bias="0.04000002">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/button_newmatch"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardCornerRadius="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".5">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/button_rounded"
+                tools:ignore="ImageContrastCheck" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autoSizeMaxTextSize="50sp"
+                android:autoSizeMinTextSize="1sp"
+                android:autoSizeStepGranularity="1sp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="5sp"
+                android:text="REMATCH"
+                android:textColor="@color/white" />
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
