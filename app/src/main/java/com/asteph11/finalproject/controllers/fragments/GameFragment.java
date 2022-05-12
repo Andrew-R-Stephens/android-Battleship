@@ -280,7 +280,7 @@ public class GameFragment extends AGridFragment {
 
                     boolean gameFinished = false;
                     try {
-                        gameFinished = matchViewModel.isGameFinished();
+                        gameFinished = matchViewModel.getTurnHandler().isFinished();
                     } catch (Exception e) {
                         Log.e("Swap", e.getMessage());
                     }
