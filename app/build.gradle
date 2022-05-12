@@ -3,6 +3,9 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
 android {
     compileSdk 32
 
@@ -58,4 +61,5 @@ dependencies {
     // Declare the dependency for the Cloud Firestore library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.21"
 }

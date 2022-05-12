@@ -30,6 +30,8 @@ public class GameFragment extends AGridFragment {
     private ImageView shipanim;
     private ImageView wateranim;
 
+    private boolean canPlace = true;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -258,6 +260,10 @@ public class GameFragment extends AGridFragment {
                 int finalX = x;
                 int finalY = y;
                 gridCoords[y][x].setOnClickListener(view -> {
+                    if(!canPlace) {
+                        return;
+                    }
+
                     int status = 0;
                     try {
                          status =
@@ -268,6 +274,8 @@ public class GameFragment extends AGridFragment {
 
                     if(status == -1) {
                         return;
+                    } else {
+                        canPlace = false;
                     }
 
                     boolean gameFinished = false;
