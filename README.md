@@ -1,3 +1,8 @@
+<div style={'display:float' align='center'}>
+    <img src="https://raw.githubusercontent.com/Andrew-R-Stephens/android_Battleship/main/app/src/main/res/drawable/battleship_banner.png"/>
+    <h1 style="color: ghostwhite">Battleship</h1>
+</div>
+
 <br>
 
 <div style="display:float" align="center">
@@ -9,8 +14,6 @@
 </div>
 
 <br>
-
-<h1 style="color: ghostwhite">Battleship</h1>
 
 <p>Two player local versus mode with highscores registering into a Firestore database.</p>
 
