@@ -1,6 +1,8 @@
 <br>
 
 <div style="display:float" align="center">
+    <img src="https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white&style=bold"/>
+    <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?logo=androidstudio&logoColor=white&style=bold"/>
     <img src="https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=white&style=bold"/>
     <img src="https://img.shields.io/badge/Firebase-Auth-FFCA28?logo=firebase&logoColor=white&style=bold"/>
     <img src="https://img.shields.io/badge/Firebase-Firestore-FFCA28?logo=firebase&logoColor=white&style=bold"/>
